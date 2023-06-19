@@ -1,6 +1,6 @@
 public class LengthOfLongestConsecutiveOnes {
     public static void main(String[] args) {
-        String A = "00";
+        String A = "01";
 
         System.out.println(getMax(A));
     }
@@ -23,21 +23,9 @@ public class LengthOfLongestConsecutiveOnes {
             else {
                 countOnes++;
             }
-
-            if(countZeros > 1) {
-                while(i < A.length() && A.charAt(i) != '0') {
-                    i++;
-                    countOnes--;
-                }
-                i++;
-                countOnes++;
-                countZeros--;
-            }
-
-            max = Math.max(max, countOnes + countZeros);
-
-            //System.out.println("countones: "+countOnes+", countzeros: "+countZeros+", max: "+max);
-
+            
+            max = Math.max(max, countOnes + (countZeros > 0 ? 1: 0));
+            
             j++;
         }
 
