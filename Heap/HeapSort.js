@@ -17,11 +17,17 @@ var maxHeapify = function(arr, size, index) {
     }
 }
 
-const arr = [-1, 50, 60, 55, 45];
-
-for(let i = Math.floor(arr.length / 2); i > 0; i--) {
-    maxHeapify(arr, arr.length, i);
+var heapSort = function(arr) {
+    let i = 1;
+    while(i < arr.length) {
+        let temp = arr[arr.length - i];
+        arr[arr.length - i] = arr[1];
+        arr[1] = temp;
+        maxHeapify(arr, arr.length - i, 1);
+        i++;
+    }
 }
 
+const arr = [-1, 70, 60, 55, 45, 50];
+heapSort(arr);
 console.log(arr);
-
